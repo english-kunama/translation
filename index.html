@@ -100,7 +100,7 @@
   </div>
 
   <script>
-     const API_URL = "https://script.google.com/macros/s/AKfycbxrSqUOrRUCV2peb2EF_UAveaRybrOBo5YarYEUhrJ3rfbhWZjsTJlKnYtbGHycIeV1cQ/exec";
+     const API_URL = "https://script.google.com/macros/s/AKfycbzwWkz2oDNKr047BSw6G9CW74ilhVfSazzkPxDUoOJe9dv0Spv51PJWtyK8HTOyqcbFGQ/exec";
 	//const API_URL = "https://script.google.com/macros/s/AKfycbzcfSr2UH6D8cQ9X3R3e_41MHfcyqLAsz6dBTB3M8hyZsN9wWIfIpTQJUwt-JZ2YlocSA/exec";
     let timeout = null;
 
@@ -166,10 +166,10 @@
 			return;
 		  }
 		  
-		  fetch("API_URL", {
+		  fetch(API_URL, { // ✅ Corrected: Use API_URL without quotes
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ phrase, translation }), // Dynamically pass values here
+			body: JSON.stringify({ phrase, translation }),
 			mode: "cors"
 		  })
 		  .then(response => response.text()) // Use `.text()` if Apps Script returns plain text
@@ -181,7 +181,8 @@
 			console.error("Fetch Error:", error);
 			document.getElementById("statusMessage").innerText = "Error adding phrase.";
 		  });
-}
+		}
+
 
 
   </script>
